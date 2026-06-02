@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(cors({origin:"https://payment-form-pearl.vercel.app/",
+app.use(cors({origin:"https://payment-form-pearl.vercel.app",
     methods:["GET","POST","PUT","DELETE"],credentials:true
 }))
 
