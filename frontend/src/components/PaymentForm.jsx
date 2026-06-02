@@ -49,7 +49,7 @@ const PaymentForm = () => {
           name="name"
           required
           onChange={handleChange}
-          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 "
         />
 
         <label className="text-sm font-medium text-slate-700" htmlFor="email">
@@ -61,7 +61,7 @@ const PaymentForm = () => {
           name="email"
           required
           onChange={handleChange}
-          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 "
         />
 
         <label className="text-sm font-medium text-slate-700" htmlFor="amount">
@@ -73,13 +73,13 @@ const PaymentForm = () => {
           name="amount"
           required
           onChange={handleChange}
-          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 "
         />
 
         <div className="flex justify-center">
           <button
             type="submit"
-            className="inline-flex w-full max-w-xs items-center justify-center rounded-2xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-200/30 transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 md:w-auto"
+            className="inline-flex w-full max-w-xs items-center justify-center rounded-2xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg  hover:bg-blue-700 md:w-auto"
           >
             Click to Pay
           </button>
