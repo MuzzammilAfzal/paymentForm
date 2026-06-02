@@ -2,10 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 const url = import.meta.env.VITE_URL
 import Swal from 'sweetalert2'
+import Loading from './Loading'
 
 const PaymentRecords = () => {
   const [userInfo, setUserInfo] = useState({ name: '', email: '' })
   const [records, setRecords] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
@@ -13,6 +15,7 @@ const PaymentRecords = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const response = await fetch(`${url}/payments`, {
       method: 'GET',
       headers: {
@@ -22,6 +25,7 @@ const PaymentRecords = () => {
       },
     })
     const data = await response.json()
+    setLoading(false)
     if (data) {
       setRecords(data)
     } else {
@@ -35,6 +39,7 @@ const PaymentRecords = () => {
 
   return (
     <div className="w-full">
+      <Loading loading={loading} />
       <form
         className="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 "
         onSubmit={handleSubmit}

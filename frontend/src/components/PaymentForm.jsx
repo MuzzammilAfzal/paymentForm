@@ -2,9 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 const url = import.meta.env.VITE_URL
 import Swal from 'sweetalert2'
+import Loading from './Loading'
 
 const PaymentForm = () => {
   const [paymentDetails, setPaymentDetails] = useState({ name: '', email: '', amount: 0 })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setPaymentDetails({ ...paymentDetails, [e.target.name]: e.target.value })
@@ -12,12 +14,14 @@ const PaymentForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const response = await fetch(`${url}/payment`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(paymentDetails),
     })
 
+    setLoading(false)
     if (response.ok) {
       Swal.fire({
         title: 'Success!',
@@ -35,6 +39,7 @@ const PaymentForm = () => {
 
   return (
     <div className="w-full">
+      <Loading loading={loading} />
       <form className="grid gap-4" onSubmit={handleSubmit}>
         <h1 className="rounded-2xl bg-slate-950 px-4 py-4 text-center text-xl font-bold text-white shadow-sm">
           Payment Form
